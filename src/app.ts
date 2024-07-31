@@ -8,7 +8,7 @@ const server = createServer(app);
 
 const io = new Server(server, {
   cors: {
-    origin: "http://localhost:5173", // Remove trailing slash
+    origin: "http://localhost:5173",
     methods: ["GET", "POST"],
     credentials: true,
   },
@@ -16,7 +16,7 @@ const io = new Server(server, {
 
 app.use(
   cors({
-    origin: "http://localhost:5173", // Remove trailing slash
+    origin: "http://localhost:5173",
     methods: ["GET", "POST"],
     credentials: true,
   })
@@ -35,5 +35,5 @@ io.on("connection", (socket) => {
 });
 
 server.listen(4000, () => {
-  console.log("Server is started at 4000 and it's working");
+  console.log("Server is working");
 });

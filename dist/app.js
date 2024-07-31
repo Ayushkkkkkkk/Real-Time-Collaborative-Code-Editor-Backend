@@ -11,13 +11,13 @@ const app = (0, express_1.default)();
 const server = (0, http_1.createServer)(app);
 const io = new socket_io_1.Server(server, {
     cors: {
-        origin: "http://localhost:5173", // Remove trailing slash
+        origin: "http://localhost:5173",
         methods: ["GET", "POST"],
         credentials: true,
     },
 });
 app.use((0, cors_1.default)({
-    origin: "http://localhost:5173", // Remove trailing slash
+    origin: "http://localhost:5173",
     methods: ["GET", "POST"],
     credentials: true,
 }));
@@ -31,5 +31,5 @@ io.on("connection", (socket) => {
     });
 });
 server.listen(4000, () => {
-    console.log("Server is started at 4000 and it's working");
+    console.log("Server is working");
 });
