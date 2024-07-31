@@ -31,5 +31,6 @@ io.on("connection", (socket) => {
     });
 });
 server.listen(4000, () => {
-    console.log("Server is working");
+    console.log("Server is running on port but is it");
 });
+//# sourceMappingURL=app.js.map

@@ -32,8 +32,13 @@ io.on("connection", (socket) => {
   socket.on("disconnect", () => {
     console.log("User Disconnected", socket.id);
   });
+
+  socket.on("editor-message", (data) => {
+    io.emit('editor-message', data)
+    console.log(data);
+  })
 });
 
 server.listen(4000, () => {
-  console.log("Server is working");
+  console.log("Server is running on port 3000 hell yeah biath wohooo");
 });
