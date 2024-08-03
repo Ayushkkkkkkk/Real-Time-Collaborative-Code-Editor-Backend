@@ -37,6 +37,11 @@ io.on("connection", (socket) => {
     io.emit('editor-message', data)
     console.log(data);
   })
+
+  socket.on("chat-message", (data) => {
+    io.emit('chat-message', { user: data.user, text: data.text })
+    console.log(data);
+  })
 });
 
 server.listen(4000, () => {
