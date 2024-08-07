@@ -39,11 +39,11 @@ io.on("connection", (socket) => {
   })
 
   socket.on("chat-message", (data) => {
-    io.emit('chat-message', { user: data.user, text: data.text })
+    io.emit('chat-message', data)
     console.log(data);
   })
 });
 
 server.listen(4000, () => {
-  console.log("Server is running on port 3000 hell yeah biath wohooo");
+  console.log("Server is running on port 4000");
 });
