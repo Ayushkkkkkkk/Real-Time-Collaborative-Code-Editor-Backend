@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev": "ts-node src/app.ts"
+    "dev": "tsc && node dist/app.js"
   },
   "keywords": [],
   "author": "",
@@ -11,8 +11,10 @@
   "description": "",
   "dependencies": {
     "@types/express": "^4.17.21",
+    "@types/mongodb": "^4.0.7",
     "cors": "^2.8.5",
     "express": "^4.19.2",
+    "mongoose": "^8.5.2",
     "socket.io": "^4.7.5"
   },
   "devDependencies": {

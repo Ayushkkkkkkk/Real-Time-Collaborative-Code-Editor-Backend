@@ -2,7 +2,8 @@ import express from "express";
 import { createServer } from "http";
 import { Server } from "socket.io";
 import cors from "cors";
-
+import { connectDB } from "./utils/features";
+import UserRoutes from "./routes/userRoutes"
 const app = express();
 const server = createServer(app);
 
@@ -13,6 +14,7 @@ const io = new Server(server, {
     credentials: true,
   },
 });
+connectDB();
 
 app.use(
   cors({
@@ -21,10 +23,9 @@ app.use(
     credentials: true,
   })
 );
+app.use(express.json());
+app.use("/api/v1/user", UserRoutes)
 
-app.get("/", (req, res) => {
-  res.send("Hello from the server");
-});
 
 io.on("connection", (socket) => {
   console.log("User connected", socket.id);
