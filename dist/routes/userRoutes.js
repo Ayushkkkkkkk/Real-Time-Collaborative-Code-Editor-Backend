@@ -7,4 +7,5 @@ const express_1 = __importDefault(require("express"));
 const user_1 = require("../User/user");
 const app = express_1.default.Router();
 app.post("/new", user_1.AddUser);
+app.get("/:email", user_1.GetUser);
 exports.default = app;

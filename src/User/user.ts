@@ -29,8 +29,19 @@ export const AddUser = async (req: Request<{}, {}, UserRequest>, res: Response, 
 
 export const GetUser = async (req: Request, res: Response, next: NextFunction) => {
   try {
-    const { email } = req.parms;
+    const { email } = req.params;
+    console.log(email);
+    const data = await User.findOne({ email })
 
+    if (data) {
+      return res.status(201).json({
+        success: true,
+        user: data
+      })
+    }
+    else {
+      return next(new ErrorHandler("User not found ", 400))
+    }
 
   }
   catch (e) {
