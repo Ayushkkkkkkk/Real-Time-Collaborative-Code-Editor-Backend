@@ -1,7 +1,10 @@
-import { Request, NextFunction, Response } from "express";
+import { Request , Response , NextFunction } from "express";
 import { User } from "../models/user";
 import { UserRequest } from "../types/types";
 import ErrorHandler from "../utils/ErrorHandler";
+
+
+
 
 export const AddUser = async (req: Request<{}, {}, UserRequest>, res: Response, next: NextFunction) => {
   try {
@@ -48,3 +51,5 @@ export const GetUser = async (req: Request, res: Response, next: NextFunction) =
     return next(e);
   }
 }
+
+
