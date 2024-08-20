@@ -1,4 +1,4 @@
-import { Request , Response , NextFunction } from "express";
+import { Request, Response, NextFunction } from "express";
 import { User } from "../models/user";
 import { UserRequest } from "../types/types";
 import ErrorHandler from "../utils/ErrorHandler";
@@ -8,7 +8,7 @@ import ErrorHandler from "../utils/ErrorHandler";
 
 export const AddUser = async (req: Request<{}, {}, UserRequest>, res: Response, next: NextFunction) => {
   try {
-    const { name, email } = req.body;
+    const { name, email, password } = req.body;
 
     if (!name) {
       return next(new ErrorHandler("Please enter the name", 400));
@@ -18,7 +18,7 @@ export const AddUser = async (req: Request<{}, {}, UserRequest>, res: Response, 
       return next(new ErrorHandler("Please enter the email", 400));
     }
 
-    await User.create({ name, email });
+    await User.create({ name, email, password });
 
     return res.status(201).json({
       success: true,
